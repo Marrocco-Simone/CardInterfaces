@@ -114,6 +114,7 @@ class OnRightCard implements StateCard<SmarterInput> {
 
 class AndCard implements LogicCard<SmarterInput> {
   fire = (i: LogicCardInput<SmarterInput>) =>
+    // https://stackoverflow.com/questions/67886332/type-a-b-is-not-assignable-to-type-a-b
     // @ts-ignore
     i.left.fire(i.leftInput) && i.right.fire(i.rightInput);
 
