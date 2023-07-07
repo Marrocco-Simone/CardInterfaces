@@ -1,18 +1,15 @@
 package Smarter;
 
-import interfaces.DescriptionCard;
+import interfaces.BooleanExpression;
 
-public class NumericCard implements DescriptionCard {
+public record NumericCard(String card) implements BooleanExpression {
     @Override
-    public boolean fire(String card) {
+    public boolean evaluate() {
         try {
             Integer.parseInt(card);
             return true;
         } catch(NumberFormatException e){
             return false;
         }
-    }
-
-    public NumericCard() {
     }
 }

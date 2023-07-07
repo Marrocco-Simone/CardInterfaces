@@ -1,16 +1,14 @@
 package Smarter;
 
-import interfaces.DescriptionCard;
+import interfaces.BooleanExpression;
 
 import java.util.Arrays;
 
-public class SymbolCard implements DescriptionCard {
-    String[] SYMBOLS = {"<", ">", "=", ">=", "<+"};
-    @Override
-    public boolean fire(String card) {
-        return Arrays.asList(SYMBOLS).contains(card);
-    }
+public record SymbolCard(String card) implements BooleanExpression {
+    static String[] SYMBOLS = {"<", ">", "=", ">=", "<+"};
 
-    public SymbolCard() {
+    @Override
+    public boolean evaluate() {
+        return Arrays.asList(SYMBOLS).contains(card);
     }
 }
